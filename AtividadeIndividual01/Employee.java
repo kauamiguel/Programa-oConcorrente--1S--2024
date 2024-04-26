@@ -19,6 +19,7 @@ public class Employee extends Thread{
         this.name = name;
     }
 
+    
     void investMoney(){
         System.out.println("Investindo 20% da conta , no total de: " + this.accountSalary.getBalance() * 0.2);
         System.out.println("\n");
