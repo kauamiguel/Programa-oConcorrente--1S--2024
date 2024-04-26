@@ -1,5 +1,38 @@
-public class Main {
+public class main {
     public static void main(String[] args) {
+        Bank bank = new Bank();
+
+        Store store1 = new Store(bank, "Store1");
+        Store store2 = new Store(bank, "Store2");
         
+        Client client1 = new Client(bank, store1, store2, "Client 1");
+        Client client2 = new Client(bank, store1, store2, "Client 2");
+        Client client3 = new Client(bank, store1, store2, "Client 3");
+        Client client4 = new Client(bank, store1, store2, "Client 4");
+        Client client5 = new Client(bank, store1, store2, "Client 5");
+
+
+        client1.start();
+        client2.start();
+        client3.start();
+        client4.start();
+        client5.start();
+        try {
+            client1.join();
+            client2.join();
+            client3.join();
+            client4.join();
+            client5.join();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+
+        System.out.println("Saldo final dos clientes: ");
+        System.out.println("Saldo do " + client1.name + ": " + client1.account.getBalance());
+        System.out.println("Saldo do " + client2.name + ": " + client2.account.getBalance());
+        System.out.println("Saldo do " + client3.name + ": " + client3.account.getBalance());
+        System.out.println("Saldo do " + client4.name + ": " + client5.account.getBalance());
+        System.out.println("Saldo do " + client4.name + ": " + client5.account.getBalance());
     }
 }

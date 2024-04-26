@@ -1,21 +1,51 @@
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 public class Store {
     Account account;
     Bank bank;
     Employee firstEmployee;
     Employee secondEmployee;
+    String storeName;
 
-    public Store(){
-        this.account = new Account();
+    public Store(Bank bank, String storeName){
+        try {
+            this.account = new Account();    
+        } catch (Exception e) {
+            System.out.println("Problema ao criar a conta na classe Loja.");
+        }
+        
         this.account.gainBalance(0.0);
-        this.bank = new Bank();
-        this.firstEmployee = new Employee();
-        this.secondEmployee = new Employee();
+        this.bank = bank;
+        this.storeName = storeName;
+        this.firstEmployee = new Employee(bank, "Primeiro funcionario da loja " + this.storeName);
+        this.secondEmployee = new Employee(bank, "Segundo funcionario da loja " + this.storeName);
+        
+        this.account.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if (evt.getPropertyName().equals("payed")) {
+                    if (account.getBalance() >= 1400) {
+                        payEmployee();
+                    }
+                }
+            }
+        });
     }
 
     void payEmployee(){
-        if (this.account.getBalance() == 1400){
-            bank.transfer(this.account, this.firstEmployee.accountSalary, 700.00);
-            bank.transfer(this.account, this.secondEmployee.accountSalary, 700.00);
+        if (this.account.getBalance() >= 1400){
+            System.out.println("Loja " + this.storeName + " com 1400 na conta.");
+            System.out.println("Pagando o funcionario: " + firstEmployee.name);
+            System.out.println("\n");
+
+            if (this.firstEmployee.accountSalary.getBalance() > this.secondEmployee.accountSalary.getBalance()){
+                bank.transfer(this.account, this.secondEmployee.accountSalary, 1400.00, this.storeName, this.secondEmployee.name);
+                this.secondEmployee.investMoney();
+            }else{
+                bank.transfer(this.account, this.firstEmployee.accountSalary, 1400.00, this.storeName, this.firstEmployee.name);
+                this.firstEmployee.investMoney();
+            }
         }
     }
 }
