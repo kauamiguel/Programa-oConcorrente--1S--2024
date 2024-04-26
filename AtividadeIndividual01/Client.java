@@ -27,8 +27,10 @@ public class Client extends Thread{
 
     public void run(){
         
+        //Check if the balance has sufficient money to spend
         while (this.account.getBalance() > 0.00){
 
+            //Generate random ammount of money to buy and a random store to spent money
             Double transferAmmount = random.nextInt(2) == 0 ? 100.00 : 200.00;
             Store randomStore = random.nextInt(2) == 0 ? this.store1 : this.store2;
             bank.transfer(this.account, randomStore.account, transferAmmount, this.name, randomStore.storeName);

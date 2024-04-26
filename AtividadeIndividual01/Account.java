@@ -13,12 +13,14 @@ public class Account {
         return this.balance;
     }
 
+    //Spend the balance and trigger the property with name payed to observe the value of the account
     void spendBalance(Double value){
         Double currentBalance = this.balance;
         this.balance -= value;
         propertyChangeSupport.firePropertyChange("payed", currentBalance, this.balance);
     }
 
+    //Gain the balance and trigger the property with name payed to observe the value of the account
     void gainBalance(Double value){
         Double currentBalance = this.balance;
         this.balance += value;

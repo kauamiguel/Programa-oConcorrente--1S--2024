@@ -7,10 +7,12 @@ public class Bank {
 
     void transfer(Account sender, Account receiver, Double ammount, String senderName, String receiverName){
         
+        //Block the acess to only one thread make a transfer action
+
         lock.lock();
-        
+
         try{
-           
+            //Check if the sender balance is bigger than the ammount that will send.
             if (sender.getBalance() >= ammount){
                 System.out.println("Destinatário : " + receiverName);
                 System.out.println("Remetende : " + senderName);

@@ -1,5 +1,7 @@
 public class main {
     public static void main(String[] args) {
+
+        // Main only have objects instances and the start of threads
         Bank bank = new Bank();
 
         Store store1 = new Store(bank, "Store1");
@@ -27,7 +29,7 @@ public class main {
             System.out.println(e);
         }
         
-
+        //Check final balance of each client
         System.out.println("Saldo final dos clientes: ");
         System.out.println("Saldo do " + client1.name + ": " + client1.account.getBalance());
         System.out.println("Saldo do " + client2.name + ": " + client2.account.getBalance());
