@@ -43,5 +43,21 @@ public class main {
         System.out.println("Saldo do " + client3.name + ": " + client3.account.getBalance());
         System.out.println("Saldo do " + client4.name + ": " + client5.account.getBalance());
         System.out.println("Saldo do " + client4.name + ": " + client5.account.getBalance());
+        System.out.println("");
+        System.out.println("Saldo final das lojas: ");
+        System.out.println("Saldo da loja " + store1.storeName + " : " + store1.account.getBalance());
+        System.out.println("Saldo da loja " + store2.storeName + " : " + store2.account.getBalance());
+        System.out.println("");
+        System.out.println("Saldo final das dos funcionarios: ");
+        System.out.println("Saldo do primeiro funcionario da loja 1: " + store1.firstEmployee.accountSalary.getBalance());
+        System.out.println("Saldo do segundo funcionario da loja 1: " + store1.secondEmployee.accountSalary.getBalance());
+        System.out.println("Saldo do primeiro funcionario da loja 1: " + store2.firstEmployee.accountSalary.getBalance());
+        System.out.println("Saldo do segundo funcionario da loja 1: " + store2.secondEmployee.accountSalary.getBalance());
+        System.out.println("");
+        System.out.println("Saldo final conta de investimento dos funcionarios: ");
+        System.out.println("Saldo de investimento do primeiro funcionario da loja 1: " + store1.firstEmployee.accountInvestment.getBalance());
+        System.out.println("Saldo de investimento do segundo funcionario da loja 1: " + store1.secondEmployee.accountInvestment.getBalance());
+        System.out.println("Saldo de investimento do primeiro funcionario da loja 1: " + store2.firstEmployee.accountInvestment.getBalance());
+        System.out.println("Saldo de investimento do segundo funcionario da loja 1: " + store2.secondEmployee.accountInvestment.getBalance());
     }
 }
