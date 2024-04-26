@@ -36,6 +36,7 @@ public class Store {
 
 
     void payEmployee(){
+        
         if (this.account.getBalance() >= 1400){
             System.out.println("Loja " + this.storeName + " com 1400 na conta.");
             System.out.println("Pagando o funcionario: " + firstEmployee.name);

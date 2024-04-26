@@ -2,6 +2,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 public class Account {
+
     Double balance = 0.0;
     private PropertyChangeSupport propertyChangeSupport;
 
@@ -27,6 +28,7 @@ public class Account {
         propertyChangeSupport.firePropertyChange("payed", currentBalance, this.balance);
     }
 
+    //Add a listener to observe the change in the current balance
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(listener);
     }

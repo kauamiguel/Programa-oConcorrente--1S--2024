@@ -28,6 +28,7 @@ public class Bank {
                 receiver.gainBalance(ammount);
             }
         }finally{
+            //Free the current thread and maje ter transfer method available to another thread
             lock.unlock();
         }
         

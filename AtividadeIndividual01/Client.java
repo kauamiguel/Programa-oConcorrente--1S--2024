@@ -19,6 +19,7 @@ public class Client extends Thread{
             System.out.println("Problema ao criar a conta na classe cliente.");
         }
         
+        //Start the account with 1000 to spend
         this.account.gainBalance(1000.0);
         this.store1 = store1;
         this.store2 = store2;
